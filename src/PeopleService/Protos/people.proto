@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "Protos/service-models.proto";
+
+option csharp_namespace = "PeopleService.ServiceCommunications";
+
+package PersonServiceCommunications;
+
+service Person {
+  rpc GetAllPeople (PeopleFilterRequest) returns (PeopleReply);
+}

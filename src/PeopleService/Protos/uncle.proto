@@ -1,0 +1,10 @@
+syntax = "proto3";
+import "Protos/service-models.proto";
+
+option csharp_namespace = "PeopleService.ServiceCommunications";
+
+package UncleServiceCommunications;
+
+service Uncle {
+  rpc GetPeople (UncleFilter) returns (UncleReply);
+}

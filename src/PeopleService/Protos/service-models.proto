@@ -1,5 +1,8 @@
 syntax = "proto3";
 
+option csharp_namespace = "PeopleService.Proto";
+package ServicePackage;
+
 //https://docs.microsoft.com/it-it/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types
 // Date
 import "google/protobuf/duration.proto";  

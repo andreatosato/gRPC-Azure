@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "PeopleService.Protos";
+
+package ServicePackage;
+
+service Simple {
+  rpc GetSimpleData (InRequest) returns (OutReply);
+}
+
+message InRequest {
+    string Filter = 1;
+}
+
+ message OutReply {
+    string SampleString = 1;
+    reserved 2;
+ 	repeated string Samples = 3;
+ }

@@ -18,6 +18,8 @@ namespace PeopleService
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddGrpc();
+			services.AddAuthorization();
+			services.AddAuthentication();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -29,11 +31,14 @@ namespace PeopleService
 			}
 
 			app.UseRouting();
+			app.UseAuthentication();
+			app.UseAuthorization();			
 
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapGrpcService<PeoplesServices>();
 				endpoints.MapGrpcService<UncleServices>();
+				endpoints.MapGrpcService<SimpleServices>();
 
 				endpoints.MapGet("/", async context =>
 				{

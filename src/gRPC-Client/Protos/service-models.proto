@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+option csharp_namespace = "PeopleService.Proto";
+package ServicePackage;
+
+//https://docs.microsoft.com/it-it/dotnet/architecture/grpc-for-wcf-developers/protobuf-data-types
+// Date
+import "google/protobuf/duration.proto";  
+import "google/protobuf/timestamp.proto";
+// Nullable
+import "google/protobuf/wrappers.proto";
+
+
+/*People Models*/
+message PeopleFilterRequest {
+  google.protobuf.Timestamp BirthDay = 1;
+}
+
+message PeopleReply {
+  string Name = 1;
+  string Surname = 2;
+  google.protobuf.Timestamp BirthDay = 3;
+  google.protobuf.Duration BirthHour = 4;
+  string Street = 5;
+  google.protobuf.Int32Value HouseNumber = 6;
+  google.protobuf.DoubleValue Money = 7;
+  reserved 8;
+  repeated CertificationReply Certifications = 9;
+}
+
+message CertificationReply {
+	string CertificationName = 1;
+	int32 Vote = 2;
+}
+
+
+/*Uncle Models*/
+message UncleFilter {
+
+}
+
+message UncleReply {
+	string Name = 1;
+}
